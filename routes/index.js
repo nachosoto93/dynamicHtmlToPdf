@@ -21,7 +21,7 @@ app.post('/', function(req,res){
     var document = {
         template: JSON.stringify(req.files.template.data),
         type: 'buffer',
-        context: JSON.stringify(req.body.checklistPdfDto)
+        context: JSON.stringify(req.body)
     };
 
     pdf.create(document, options)
