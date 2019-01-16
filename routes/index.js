@@ -10,16 +10,15 @@ app.get('/', function(req, res, next) {
 });
 
 app.post('/', function(req,res){
-    console.log(req)
+    // console.log(req)
      var options = {
         format: "A3",
         orientation: "portrait",
         border: "10mm"
      };
-
-
+    var html = req.files.template.data.toString('utf8')
     var document = {
-        template: JSON.stringify(req.files.template.data),
+        template: html,
         type: 'buffer',
         context: JSON.stringify(req.body)
     };
