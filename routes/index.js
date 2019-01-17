@@ -15,11 +15,14 @@ app.post('/', function(req,res){
      var options = {
         format: "A3",
         orientation: "portrait",
-        border: "10mm"
+        border: "10mm",
+         background:"#f0f0f0"
      };
+
     var html = req.files.template.data.toString('utf8')
     var json = req.body.pdfJson;
-
+    console.log(html)
+    console.log("the json is: ")
     var document = {
         template: html,
         type: 'buffer',
@@ -34,6 +37,7 @@ app.post('/', function(req,res){
         })
         .catch(error => {
                 console.error(error)
+                res.send(error)
         });
 
 
