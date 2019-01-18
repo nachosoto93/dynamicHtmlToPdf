@@ -8,11 +8,12 @@
   "dependencies": {
     "cookie-parser": "~1.4.3",
     "debug": "~2.6.9",
-    "dynamic-html-pdf": "0.0.4",
+    "dynamic-html-pdf": "latest",
     "express": "~4.16.0",
     "express-fileupload": "^1.1.1-alpha.1",
     "http-errors": "~1.6.2",
     "jade": "~1.11.0",
-    "dynamic-html-pdf": "latest"
+    "morgan": "^1.9.1",
+    "puppeteer": "^1.11.0"
   }
 }
