@@ -14,19 +14,23 @@ app.use(bodyParser.urlencoded({
 
 app.post('/', function(req,res){
      var options = {
-        format: "A3",
+        format: "A4",
         orientation: "portrait",
         border: "0"
      };
+    console.log(req)
+    if(req.body.template == undefined){
+       var html = req.files.template.data.toString('utf8')
+    } else {
+        var html = req.body.template.toString('utf8')
+    }
 
-    var html = req.files.template.data.toString('utf8')
     var json = req.body.pdfJson;
 
 
     (async () => {
         const browser = await puppeteer.launch()
     const page = await browser.newPage()
-
 
     var template = handlebars.compile(html);
     var finalHtml = template(JSON.parse(json));
